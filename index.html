@@ -1,149 +1,44 @@
-<!doctype html>
-<html lang="zh">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>秋</title>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/default.css">
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="js/flipclock.css">
-		<script src="jquery.min.js"></script>
-		<script src="js/flipclock.js"></script>
-		<style type="text/css">
-			body {
-				width: 100%;
-				height: 100%;
-			}
+<!DOCTYPE html>
+<html lang="en">
 
-			.slideout-menu {
-				position: fixed;
-				left: 0;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				z-index: 0;
-				width: 256px;
-				overflow-y: auto;
-				-webkit-overflow-scrolling: touch;
-				display: none;
-			}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计时器</title>
+  <style>
+    #timer {
+      font-size: 2em;
+      text-align: center;
+    }
+  </style>
+</head>
 
-			.slideout-panel {
-				position: relative;
-				z-index: 1;
-			}
+<body>
+  <div id="timer"></div>
 
-			.slideout-open,
-			.slideout-open body,
-			.slideout-open .slideout-panel {
-				overflow: hidden;
-			}
+  <script>
+    // 设置起始时间
+    const startDate = new Date('2024-04-12T21:09:51.000Z');
 
-			.slideout-open .slideout-menu {
-				display: block;
-			
-			}
-			
-		</style>
-		<!--[if IE]>
-		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
-	</head>
-	<body>
+    function updateTimer() {
+      const currentDate = new Date();
+      const diff = currentDate - startDate;
 
+      const milliseconds = diff % 1000;
+      const seconds = Math.floor(diff / 1000) % 60;
+      const minutes = Math.floor(diff / (1000 * 60)) % 60;
+      const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
+      const timerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒 ${milliseconds} 毫秒`;
+      document.getElementById('timer').innerHTML = timerText;
+    }
 
+    // 首次更新
+    updateTimer();
+    // 每 1 毫秒更新一次
+    setInterval(updateTimer, 1);
+  </script>
+</body>
 
-		<nav id="menu" class="menu">
-			<a href="https://github.com/mango/slideout" target="_blank">
-				<header class="menu-header">
-					<span class="menu-header-title">Slideout.js</span>
-				</header>
-			</a>
-
-			<section class="menu-section">
-				<h3 class="menu-section-title">Docs</h3>
-				<ul class="menu-section-list">
-					<li><a href="#" target="_blank">Installation</a></li>
-					<li><a href="#" target="_blank">Usage</a></li>
-					<li><a href="#" target="_blank">API</a></li>
-					<li><a href="#" target="_blank">npm-scripts</a></li>
-				</ul>
-			</section>
-
-			<section class="menu-section">
-				<h3 class="menu-section-title">Slideout</h3>
-				<ul class="menu-section-list">
-					<li><a href="#" target="_blank">Fork it</a></li>
-					<li><a href="#" target="_blank">Create an issue</a></li>
-					<li><a href="#">Download</a></li>
-				</ul>
-			</section>
-
-			<section class="menu-section">
-				<h3 class="menu-section-title">Mango</h3>
-				<ul class="menu-section-list">
-					<li><a href="#" target="_blank">About Mango</a></li>
-					<li><a href="#" target="_blank">Follow Us</a></li>
-				</ul>
-			</section>
-		</nav>
-		<main id="main" class="panel">
-			<button class="btn-hamburger js-slideout-toggle">
-				<span class="tooltip">Open slideout</span>
-			</button>
-
-
-
-			<div class="clock" style="margin-top: 200px;"></div>
-			<script type="text/javascript">
-				var clock;
-				$(document).ready(function() {
-					clock = $('.clock').FlipClock({
-						clockFace: 'TwentyFourHourClock'
-					});
-				});
-			</script>
-
-
-
-
-		</main>
-
-		<script type="text/javascript" src="js/slideout.min.js"></script>
-		<script type="text/javascript">
-			var slideout = new Slideout({
-				'panel': document.getElementById('main'),
-				'menu': document.getElementById('menu'),
-				'padding': 256,
-				'tolerance': 70
-			});
-
-			document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
-				slideout.toggle();
-			});
-
-			document.querySelector('.menu').addEventListener('click', function(eve) {
-				if (eve.target.nodeName === 'A') {
-					slideout.close();
-				}
-			});
-
-			function aload(t) {
-				"use strict";
-				t = t || window.document.querySelectorAll("[data-aload]"), void 0 === t.length && (t = [t]);
-				var a, e = 0,
-					r = t.length;
-				for (e; r > e; e += 1) a = t[e], a["LINK" !== a.tagName ? "src" : "href"] = a.getAttribute("data-aload"), a
-					.removeAttribute("data-aload");
-				return t
-			}
-			window.onload = function() {
-				aload();
-				document.querySelector('.iphone').className += ' shown';
-			}
-		</script>
-	</body>
 </html>
