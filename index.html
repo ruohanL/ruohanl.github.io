@@ -89,7 +89,7 @@
 		.content {
 			width: calc(var(--nav-item-width) * 4);
 			height: 896px;
-			background-color: #fff;
+			background-color: #212534;
 			margin-top: var(--nav-item-height);
 			border-radius: var(--nav-item-padding);
 			display: flex;
@@ -99,17 +99,17 @@
 
 		.content div {
 			width: calc(var(--nav-item-width) * 4);
-			background-color: #000;
+			background-color: #191C29;
 			flex-shrink: 0;
 			transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
 		}
 
 		.content div:nth-child(1) {
-			background-color: #708dfa;
+			background-color: #191C29;
 			font-size: 4.25rem;
-			color: #ffffff;
+			color: #708dfa;
 			font-weight: bold;
-			
+
 		}
 
 		.content div:nth-child(2) {
@@ -190,6 +190,31 @@
 					updateTime();
 				</script>
 
+
+				<p>距离2024年4月12日已经过去</p>
+				<div id="timer"></div>
+				<script>
+					// 设置起始时间
+					const startDate = new Date('2024-04-12T21:09:51.000Z');
+
+					function updateTimer() {
+						const currentDate = new Date();
+						const diff = currentDate - startDate;
+
+						const milliseconds = diff % 1000;
+						const seconds = Math.floor(diff / 1000) % 60;
+						const minutes = Math.floor(diff / (1000 * 60)) % 60;
+						const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+						const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+						const timerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒 ${milliseconds} 毫秒`;
+						document.getElementById('timer').innerHTML = timerText;
+					}
+					// 首次更新
+					updateTimer();
+					// 每 1 毫秒更新一次
+					setInterval(updateTimer, 1);
+				</script>
 			</div>
 
 
