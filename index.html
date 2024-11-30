@@ -4,168 +4,199 @@
 		<meta charset="utf-8" />
 		<title></title>
 	</head>
-	
-	
+
+
 	<style>
-		
 		:root {
-		  font-size: 16px ;
-		  --nav-item-width: 14rem;
-		  --nav-item-height: 3rem;
-		  --nav-item-padding: 1rem;
-		  --transition-speed: .5s;
+			font-size: 16px;
+			--nav-item-width: 14rem;
+			--nav-item-height: 3rem;
+			--nav-item-padding: 1rem;
+			--transition-speed: .5s;
 		}
-		
+
 		body {
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  min-height: 100vh;
-		  font-family: Helvetica;
-		  background-color: #212534;
-		  flex-direction: column;
-		  color: #ffffff;
-		
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			font-family: Helvetica;
+			background-color: #212534;
+			flex-direction: column;
+			color: #ffffff;
+
 		}
-		
+
 		nav {
-		  background-color: #191C29;
-		  padding: var(--nav-item-padding) 0;
-		  border-radius: var(--nav-item-height);
-		  position: relative;
-		  box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
+			background-color: #191C29;
+			padding: var(--nav-item-padding) 0;
+			border-radius: var(--nav-item-height);
+			position: relative;
+			box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
 		}
-		
+
 		nav::after {
-		  content: '';
-		  display: block;
-		  width: calc(var(--nav-item-width) - var(--nav-item-padding));
-		  height: calc(var(--nav-item-height) + var(--nav-item-padding));
-		  background: #212534;
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  margin: calc(var(--nav-item-padding) / 2);
-		  border-radius: var(--nav-item-height);
-		  transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
+			content: '';
+			display: block;
+			width: calc(var(--nav-item-width) - var(--nav-item-padding));
+			height: calc(var(--nav-item-height) + var(--nav-item-padding));
+			background: #212534;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: calc(var(--nav-item-padding) / 2);
+			border-radius: var(--nav-item-height);
+			transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
 		}
-		
+
 		nav ul {
-		  list-style: none;
-		  margin: 0;
-		  padding: 0;
-		  display: flex;
-		  align-items: center;
-		  height: var(--nav-item-height);
-		  position: relative;
-		  z-index: 10;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			height: var(--nav-item-height);
+			position: relative;
+			z-index: 10;
 		}
-		
+
 		nav ul li {
-		  font-size: 1.5rem;
-		  width: var(--nav-item-width);
-		  text-align: center;
+			font-size: 1.5rem;
+			width: var(--nav-item-width);
+			text-align: center;
 		}
-		
-		#nav-home:checked ~ nav::after {
-		  transform: translatex(0);
+
+		#nav-home:checked~nav::after {
+			transform: translatex(0);
 		}
-		
-		#nav-products:checked ~ nav::after {
-		  transform: translatex(calc(var(--nav-item-width) * 1));
+
+		#nav-products:checked~nav::after {
+			transform: translatex(calc(var(--nav-item-width) * 1));
 		}
-		
-		#nav-about:checked ~ nav::after {
-		  transform: translatex(calc(var(--nav-item-width) * 2));
+
+		#nav-about:checked~nav::after {
+			transform: translatex(calc(var(--nav-item-width) * 2));
 		}
-		
-		#nav-contact:checked ~ nav::after {
-		  transform: translatex(calc(var(--nav-item-width) * 3));
+
+		#nav-contact:checked~nav::after {
+			transform: translatex(calc(var(--nav-item-width) * 3));
 		}
-		
+
 		input[type="radio"] {
-		  display: none;
+			display: none;
 		}
-		
+
 		.content {
-		  width: calc(var(--nav-item-width) * 4);
-		  height: 896px;
-		  background-color: #fff;
-		  margin-top: var(--nav-item-height);
-		  border-radius: var(--nav-item-padding);
-		  display: flex;
-		  overflow: hidden;
-		  box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
+			width: calc(var(--nav-item-width) * 4);
+			height: 896px;
+			background-color: #fff;
+			margin-top: var(--nav-item-height);
+			border-radius: var(--nav-item-padding);
+			display: flex;
+			overflow: hidden;
+			box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
 		}
-		
+
 		.content div {
-		  width: calc(var(--nav-item-width) * 4);
-		  background-color: #000;
-		  flex-shrink: 0;
-		  transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
+			width: calc(var(--nav-item-width) * 4);
+			background-color: #000;
+			flex-shrink: 0;
+			transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
 		}
-		
+
 		.content div:nth-child(1) {
-		  background-color: #708dfa ;
+			background-color: #708dfa;
+			font-size: 4.25rem;
+			color: #ffffff;
+			font-weight: bold;
+			
 		}
-		
+
 		.content div:nth-child(2) {
-		  background-color: #d464ae;
+			background-color: #d464ae;
 		}
-		
+
 		.content div:nth-child(3) {
-		  background-color: #4e949f;
+			background-color: #4e949f;
 		}
-		
+
 		.content div:nth-child(4) {
-		  background-color: #facc15;
+			background-color: #8A8989;
 		}
-		
-		#nav-home:checked ~ .content div {
-		  transform: translatex(0);
+
+		#nav-home:checked~.content div {
+			transform: translatex(0);
 		}
-		
-		#nav-products:checked ~ .content div {
-		  transform: translatex(calc(var(--nav-item-width) * 4 * -1));
+
+		#nav-products:checked~.content div {
+			transform: translatex(calc(var(--nav-item-width) * 4 * -1));
 		}
-		
-		#nav-about:checked ~ .content div {
-		  transform: translatex(calc(var(--nav-item-width) * 4 * -2));
+
+		#nav-about:checked~.content div {
+			transform: translatex(calc(var(--nav-item-width) * 4 * -2));
 		}
-		
-		#nav-contact:checked ~ .content div {
-		  transform: translatex(calc(var(--nav-item-width) * 4 * -3));
+
+		#nav-contact:checked~.content div {
+			transform: translatex(calc(var(--nav-item-width) * 4 * -3));
 		}
-		
+
+		/*card1----------------------------------------------------------------------------*/
 	</style>
 	<body>
 		<input type="radio" name="nav" id="nav-home">
 		<input type="radio" name="nav" id="nav-products">
 		<input type="radio" name="nav" id="nav-about">
 		<input type="radio" name="nav" id="nav-contact">
-		
+
 		<nav>
-		  <ul>
-		    <li>
-		      <label for="nav-home">Time</label>
-		    </li>
-		    <li>
-		      <label for="nav-products">Random</label>
-		    </li>
-		    <li>
-		      <label for="nav-about">Singular</label>
-		    </li>
-		    <li>
-		      <label for="nav-contact">Even</label>
-		    </li>
-		  </ul>
+			<ul>
+				<li>
+					<label for="nav-home">Time</label>
+				</li>
+				<li>
+					<label for="nav-products">Random</label>
+				</li>
+				<li>
+					<label for="nav-about">Singular</label>
+				</li>
+				<li>
+					<label for="nav-contact">Even</label>
+				</li>
+			</ul>
 		</nav>
-		
+
 		<div class="content">
-		  <div></div>
-		  <div></div>
-		  <div></div>
-		  <div></div>
+
+			<div>
+				<h2>当前时间:</h2>
+				<p id="timeDisplay"></p>
+
+				<script>
+					function updateTime() {
+						const now = new Date();
+						const year = now.getFullYear();
+						const month = String(now.getMonth() + 1).padStart(2, '0');
+						const day = String(now.getDate()).padStart(2, '0');
+						const hours = String(now.getHours()).padStart(2, '0');
+						const minutes = String(now.getMinutes()).padStart(2, '0');
+						const seconds = String(now.getSeconds()).padStart(2, '0');
+						const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+
+						const timeString = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${weekday}`;
+						document.getElementById('timeDisplay').textContent = timeString;
+					}
+
+					setInterval(updateTime, 1000);
+					updateTime();
+				</script>
+
+			</div>
+
+
+
+			<div></div>
+			<div></div>
+			<div></div>
 		</div>
 	</body>
 </html>
