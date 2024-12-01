@@ -21,18 +21,19 @@
 			align-items: center;
 			min-height: 100vh;
 			font-family: Helvetica;
-			background-color: #212534;
+			background-color: #F2F2F7;
 			flex-direction: column;
-			color: #ffffff;
+			color: #000000;
+			font-weight: bold;
 
 		}
 
 		nav {
-			background-color: #191C29;
+			background-color: #EEEEEF;
 			padding: var(--nav-item-padding) 0;
 			border-radius: var(--nav-item-height);
 			position: relative;
-			box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
+		/* 	box-shadow: 0px 4px 12px rgba(0, 0, 0, .1); */
 		}
 
 		nav::after {
@@ -40,7 +41,7 @@
 			display: block;
 			width: calc(var(--nav-item-width) - var(--nav-item-padding));
 			height: calc(var(--nav-item-height) + var(--nav-item-padding));
-			background: #212534;
+			background: #FFFFFF;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -61,7 +62,7 @@
 		}
 
 		nav ul li {
-			font-size: 1.5rem;
+			font-size: 1.6rem;
 			width: var(--nav-item-width);
 			text-align: center;
 		}
@@ -89,23 +90,23 @@
 		.content {
 			width: calc(var(--nav-item-width) * 4);
 			height: 1700px;
-			background-color: #212534;
+			background-color: #FFFFFF;
 			margin-top: var(--nav-item-height);
 			border-radius: var(--nav-item-padding);
 			display: flex;
 			overflow: hidden;
-			box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
+			/* box-shadow: 0px 4px 12px rgba(0, 0, 0, .1); */
 		}
 
 		.content div {
 			width: calc(var(--nav-item-width) * 4);
-			background-color: #191C29;
+			background-color: #FFFFFF;
 			flex-shrink: 0;
 			transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
 		}
 
 		.content div:nth-child(1) {
-			background-color: #191C29;
+			background-color: #FFFFFF;
 			font-size: 4.25rem;
 			color: #708dfa;
 			font-weight: bold;
@@ -113,15 +114,21 @@
 		}
 
 		.content div:nth-child(2) {
-			background-color: #d464ae;
+			background-color: color: #708dfa;
+			
+			color: #d464ae;
 		}
 
 		.content div:nth-child(3) {
-			background-color: #4e949f;
+			background-color: color: #708dfa;
+			
+			color: #4e949f;
 		}
 
 		.content div:nth-child(4) {
-			background-color: #8A8989;
+			background-color: color: #708dfa;
+			
+			color: #8A8989;
 		}
 
 		#nav-home:checked~.content div {
@@ -144,10 +151,10 @@
 
 
 
-/*background----------------------------------------------------------------------------*/
+		/*background----------------------------------------------------------------------------*/
 
 
-		body {
+		/* 	body {
 
 			background-image:
 				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(235, 105, 78, 0)),
@@ -233,7 +240,7 @@
 					-10vmax 10vmax,
 					40vmax 60vmax;
 			}
-		}
+		} */
 
 
 
@@ -315,7 +322,8 @@
 						const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
 						const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-						const timerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒 ${milliseconds} 毫秒`;
+						const timerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+						// ${milliseconds} 毫秒
 						document.getElementById('timer').innerHTML = timerText;
 					}
 					// 首次更新
@@ -327,9 +335,15 @@
 
 
 
-			<div><h1>没写完</h2></div>
-			<div><h2>没写完</h2></div>
-			<div><h2>没写完</h2></div>
+			<div>
+				<h1>没写完</h2>
+			</div>
+			<div>
+				<h2>没写完</h2>
+			</div>
+			<div>
+				<h2>没写完</h2>
+			</div>
 		</div>
 	</body>
 </html>
