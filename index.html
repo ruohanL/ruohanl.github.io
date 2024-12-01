@@ -33,7 +33,7 @@
 			padding: var(--nav-item-padding) 0;
 			border-radius: var(--nav-item-height);
 			position: relative;
-		/* 	box-shadow: 0px 4px 12px rgba(0, 0, 0, .1); */
+			/* 	box-shadow: 0px 4px 12px rgba(0, 0, 0, .1); */
 		}
 
 		nav::after {
@@ -115,19 +115,19 @@
 
 		.content div:nth-child(2) {
 			background-color: color: #708dfa;
-			
+
 			color: #d464ae;
 		}
 
 		.content div:nth-child(3) {
 			background-color: color: #708dfa;
-			
+
 			color: #4e949f;
 		}
 
 		.content div:nth-child(4) {
 			background-color: color: #708dfa;
-			
+
 			color: #8A8989;
 		}
 
@@ -154,93 +154,6 @@
 		/*background----------------------------------------------------------------------------*/
 
 
-		/* 	body {
-
-			background-image:
-				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(235, 105, 78, 0)),
-				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(243, 11, 164, 0)),
-				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(254, 234, 131, 0)),
-				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(170, 142, 245, 0)),
-				radial-gradient(closest-side, rgba(112, 141, 250, 1.0), rgba(248, 192, 147, 0));
-			background-size:
-				130vmax 130vmax,
-				80vmax 80vmax,
-				90vmax 90vmax,
-				110vmax 110vmax,
-				90vmax 90vmax;
-			background-position:
-				-80vmax -80vmax,
-				60vmax -30vmax,
-				10vmax 10vmax,
-				-30vmax -10vmax,
-				50vmax 50vmax;
-			background-repeat: no-repeat;
-			animation: 10s movement linear infinite;
-		}
-
-		@keyframes movement {
-
-			0%,
-			100% {
-				background-size:
-					130vmax 130vmax,
-					80vmax 80vmax,
-					90vmax 90vmax,
-					110vmax 110vmax,
-					90vmax 90vmax;
-				background-position:
-					-80vmax -80vmax,
-					60vmax -30vmax,
-					10vmax 10vmax,
-					-30vmax -10vmax,
-					50vmax 50vmax;
-			}
-
-			25% {
-				background-size:
-					100vmax 100vmax,
-					90vmax 90vmax,
-					100vmax 100vmax,
-					90vmax 90vmax,
-					60vmax 60vmax;
-				background-position:
-					-60vmax -90vmax,
-					50vmax -40vmax,
-					0vmax -20vmax,
-					-40vmax -20vmax,
-					40vmax 60vmax;
-			}
-
-			50% {
-				background-size:
-					80vmax 80vmax,
-					110vmax 110vmax,
-					80vmax 80vmax,
-					60vmax 60vmax,
-					80vmax 80vmax;
-				background-position:
-					-50vmax -70vmax,
-					40vmax -30vmax,
-					10vmax 0vmax,
-					20vmax 10vmax,
-					30vmax 70vmax;
-			}
-
-			75% {
-				background-size:
-					90vmax 90vmax,
-					90vmax 90vmax,
-					100vmax 100vmax,
-					90vmax 90vmax,
-					70vmax 70vmax;
-				background-position:
-					-50vmax -40vmax,
-					50vmax -30vmax,
-					20vmax 0vmax,
-					-10vmax 10vmax,
-					40vmax 60vmax;
-			}
-		} */
 
 
 
@@ -285,7 +198,6 @@
 			<div>
 				<h2>当前时间:</h2>
 				<p id="timeDisplay"></p>
-
 				<script>
 					function updateTime() {
 						const now = new Date();
@@ -304,7 +216,6 @@
 					setInterval(updateTime, 1000);
 					updateTime();
 				</script>
-
 
 				<p>距离2024年4月12日已经过去</p>
 				<div id="timer"></div>
@@ -335,14 +246,140 @@
 
 
 
+
+
+
+
 			<div>
-				<h1>没写完</h2>
+				<h1>随机数生成器</h1>
+				<label for="maxNumberRadio20">20</label>
+				<input type="radio" id="maxNumberRadio20" name="maxNumber" value="20" checked>
+				<label for="maxNumberRadio30">30</label>
+				<input type="radio" id="maxNumberRadio30" name="maxNumber" value="30">
+				<label for="maxNumberRadio40">40</label>
+				<input type="radio" id="maxNumberRadio40" name="maxNumber" value="40">
+				<label for="maxNumberRadio50">50</label>
+				<input type="radio" id="maxNumberRadio50" name="maxNumber" value="50">
+				<label for="maxNumberRadio60">60</label>
+				<input type="radio" id="maxNumberRadio60" name="maxNumber" value="60">
+				<button onclick="generateRandomNumber()">生成随机数</button>
+				<p id="result01"></p>
+
+				<script>
+					function generateRandomNumber() {
+						var maxNumberRadio20 = document.getElementById('maxNumberRadio20');
+						var maxNumberRadio30 = document.getElementById('maxNumberRadio30');
+						var maxNumberRadio40 = document.getElementById('maxNumberRadio40');
+						var maxNumberRadio50 = document.getElementById('maxNumberRadio50');
+						var maxNumberRadio60 = document.getElementById('maxNumberRadio60');
+						var maxNumber;
+						if (maxNumberRadio20.checked) {
+							maxNumber = 20;
+						} else if (maxNumberRadio30.checked) {
+							maxNumber = 30;
+						} else if (maxNumberRadio40.checked) {
+							maxNumber = 40;
+						} else if (maxNumberRadio50.checked) {
+							maxNumber = 50;
+						} else if (maxNumberRadio60.checked) {
+							maxNumber = 60;
+						}
+						var minNumber = 0;
+						var randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+						document.getElementById('result01').textContent = '生成的随机数是：' + randomNumber;
+					}
+				</script>
+
 			</div>
+
+
+
+
+
+
+
+
+
 			<div>
-				<h2>没写完</h2>
+				<h1>随机数生成器</h1>
+				<button onclick="generateRandomNumbers02()">生成随机数</button>
+				<p id="result02"></p>
+
+				<script>
+					function generateRandomNumbers02() {
+						let result02 = [];
+
+						// 生成前5组1 - 35的随机数
+						for (let i = 0; i < 5; i++) {
+							let randomNumber = generateSecureRandomNumber(1, 35);
+							// 如果是个位数，在前面加0
+							if (randomNumber < 10) {
+								randomNumber = "0" + randomNumber;
+							}
+							result02.push(randomNumber);
+						}
+
+						// 生成后2组1 - 12的随机数
+						for (let i = 0; i < 2; i++) {
+							let randomNumber = generateSecureRandomNumber(1, 12);
+							// 如果是个位数，在前面加0
+							if (randomNumber < 10) {
+								randomNumber = "0" + randomNumber;
+							}
+							result02.push(randomNumber);
+						}
+
+						document.getElementById('result02').innerHTML = result02.join(" ");
+					}
+
+					function generateSecureRandomNumber(min, max) {
+						const buffer = new Uint32Array(1);
+						window.crypto.getRandomValues(buffer);
+						let randomNumber = buffer[0] % (max - min + 1);
+						return randomNumber + min;
+					}
+				</script>
 			</div>
+
+
+
 			<div>
-				<h2>没写完</h2>
+				<h1>随机数生成器2</h1>
+				<button onclick="generateRandomNumbers()">生成随机数</button>
+				<p id="result"></p>
+
+				<script>
+					function generateRandomNumbers() {
+						let result = [];
+
+						// 生成前 6 组 1 - 33 的随机数
+						for (let i = 0; i < 6; i++) {
+							let randomNumber = generateSecureRandomNumber(1, 33);
+							// 如果是个位数，在前面加 0
+							if (randomNumber < 10) {
+								randomNumber = "0" + randomNumber;
+							}
+							result.push(randomNumber);
+						}
+
+						// 生成最后一组 1 - 16 的随机数
+						let randomNumberLast = generateSecureRandomNumber(1, 16);
+						// 如果是个位数，在前面加 0
+						if (randomNumberLast < 10) {
+							randomNumberLast = "0" + randomNumberLast;
+						}
+						result.push(randomNumberLast);
+
+						document.getElementById('result').innerHTML = result.join(" ");
+					}
+
+					function generateSecureRandomNumber(min, max) {
+						const buffer = new Uint32Array(1);
+						window.crypto.getRandomValues(buffer);
+						let randomNumber = buffer[0] % (max - min + 1);
+						return randomNumber + min;
+					}
+				</script>
 			</div>
 		</div>
 	</body>
