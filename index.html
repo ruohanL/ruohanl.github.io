@@ -5,7 +5,6 @@
 		<title></title>
 	</head>
 
-
 	<style>
 		:root {
 			font-size: 16px;
@@ -21,19 +20,19 @@
 			align-items: center;
 			min-height: 100vh;
 			font-family: Helvetica;
-			background-color: #F2F2F7;
+			background-color: #212534;
 			flex-direction: column;
-			color: #000000;
+			color: #708dfa;
 			font-weight: bold;
 
 		}
 
 		nav {
-			background-color: #EEEEEF;
+			background-color: #191C29;
 			padding: var(--nav-item-padding) 0;
 			border-radius: var(--nav-item-height);
 			position: relative;
-			/* 	box-shadow: 0px 4px 12px rgba(0, 0, 0, .1); */
+			box-shadow: 0px 4px 12px rgba(0, 0, 0, .1);
 		}
 
 		nav::after {
@@ -41,7 +40,7 @@
 			display: block;
 			width: calc(var(--nav-item-width) - var(--nav-item-padding));
 			height: calc(var(--nav-item-height) + var(--nav-item-padding));
-			background: #FFFFFF;
+			background: #212534;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -89,8 +88,8 @@
 
 		.content {
 			width: calc(var(--nav-item-width) * 4);
-			height: 1700px;
-			background-color: #FFFFFF;
+			height: 1200px;
+			background-color: #212534;
 			margin-top: var(--nav-item-height);
 			border-radius: var(--nav-item-padding);
 			display: flex;
@@ -100,13 +99,13 @@
 
 		.content div {
 			width: calc(var(--nav-item-width) * 4);
-			background-color: #FFFFFF;
+			background-color: #191C29;
 			flex-shrink: 0;
 			transition: var(--transition-speed) all cubic-bezier(0.42, 0, 0.68, 1.35);
 		}
 
 		.content div:nth-child(1) {
-			background-color: #FFFFFF;
+			background-color: #191C29;
 			font-size: 4.25rem;
 			color: #708dfa;
 			font-weight: bold;
@@ -115,20 +114,23 @@
 
 		.content div:nth-child(2) {
 			background-color: color: #708dfa;
-
-			color: #d464ae;
+			font-size: 4.25rem;
+			color: #708dfa;
+			font-weight: bold;
 		}
 
 		.content div:nth-child(3) {
 			background-color: color: #708dfa;
-
-			color: #4e949f;
+			font-size: 4.25rem;
+			color: #708dfa;
+			font-weight: bold;
 		}
 
 		.content div:nth-child(4) {
 			background-color: color: #708dfa;
-
-			color: #8A8989;
+			font-size: 4.25rem;
+			color: #708dfa;
+			font-weight: bold;
 		}
 
 		#nav-home:checked~.content div {
@@ -151,12 +153,31 @@
 
 
 
-		/*background----------------------------------------------------------------------------*/
+		/*button----------------------------------------------------------------------------*/
 
 
 
 
+		button {
+			color: #708DFA;
+			border: 0;
+			background-color: #212534;
+			font-size: 60px;
+			border-radius: 20px;
+			box-shadow: 0px 16px 30px rgba(25, 28, 41, 0.1), inset 0px 0px 0px rgba(0, 0, 0, 0);
+			padding: 20px 40px;
+			transition: .15s all ease-in-out;
+		}
 
+		button:hover {
+			box-shadow: 0px 20px 40px rgba(25, 28, 41, 0.1), inset 0px 0px 0px rgba(0, 0, 0, 0);
+			transform: scale(1.05);
+		}
+
+		button:active {
+			box-shadow: 0px 8px 16px rgba(0, 0, 0, 0), inset 0px 12px 20px rgba(0, 0, 0, .15);
+			transform: scale(1);
+		}
 
 
 
@@ -196,7 +217,7 @@
 		<div class="content">
 
 			<div>
-				<h2>当前时间:</h2>
+				<h2>Time:</h2>
 				<p id="timeDisplay"></p>
 				<script>
 					function updateTime() {
@@ -207,7 +228,7 @@
 						const hours = String(now.getHours()).padStart(2, '0');
 						const minutes = String(now.getMinutes()).padStart(2, '0');
 						const seconds = String(now.getSeconds()).padStart(2, '0');
-						const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+						const weekday = ['Sun.', 'Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.'][now.getDay()];
 
 						const timeString = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${weekday}`;
 						document.getElementById('timeDisplay').textContent = timeString;
@@ -217,7 +238,7 @@
 					updateTime();
 				</script>
 
-				<p>距离2024年4月12日已经过去</p>
+				<p>-------------------------------------</p>
 				<div id="timer"></div>
 				<script>
 					// 设置起始时间
@@ -233,7 +254,7 @@
 						const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
 						const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-						const timerText = `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+						const timerText = `${days}Day${hours} Hours ${minutes}min ${seconds} s`;
 						// ${milliseconds} 毫秒
 						document.getElementById('timer').innerHTML = timerText;
 					}
@@ -242,6 +263,60 @@
 					// 每 1 毫秒更新一次
 					setInterval(updateTimer, 1);
 				</script>
+
+
+
+
+				<p>-------------------------------------</p>
+
+
+				<p id="countdown"></p>
+
+				<script>
+					// 设置春节的日期，这里假设春节是2025年2月19日，你可以根据实际年份修改
+					const springFestivalDate = new Date('2025-02-19T00:00:00');
+
+					function updateCountdown() {
+						const now = new Date();
+						const timeDiff = springFestivalDate - now;
+
+						if (timeDiff <= 0) {
+							document.getElementById('countdown').textContent = '祝你新年快乐！🧨🧨🧨';
+							return;
+						}
+
+						const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+						const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+						const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+						const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+						document.getElementById('countdown').textContent =
+							`Snake Year：${days}Day ${hours}Hours ${minutes}min ${seconds}s`;
+
+						setTimeout(updateCountdown, 1000);
+					}
+
+					updateCountdown();
+				</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</div>
 
 
@@ -251,7 +326,7 @@
 
 
 			<div>
-				<h1>随机数生成器</h1>
+				<h2>Random:</h2>
 				<label for="maxNumberRadio20">20</label>
 				<input type="radio" id="maxNumberRadio20" name="maxNumber" value="20" checked>
 				<label for="maxNumberRadio30">30</label>
@@ -262,7 +337,13 @@
 				<input type="radio" id="maxNumberRadio50" name="maxNumber" value="50">
 				<label for="maxNumberRadio60">60</label>
 				<input type="radio" id="maxNumberRadio60" name="maxNumber" value="60">
-				<button onclick="generateRandomNumber()">生成随机数</button>
+				<button onclick="generateRandomNumber()">😎RUN</button>
+
+
+
+
+
+
 				<p id="result01"></p>
 
 				<script>
@@ -286,23 +367,16 @@
 						}
 						var minNumber = 0;
 						var randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-						document.getElementById('result01').textContent = '生成的随机数是：' + randomNumber;
+						document.getElementById('result01').textContent = 'Result :' + randomNumber;
 					}
 				</script>
 
 			</div>
 
 
-
-
-
-
-
-
-
 			<div>
-				<h1>随机数生成器</h1>
-				<button onclick="generateRandomNumbers02()">生成随机数</button>
+				<h2>Singular:</h2>
+				<button onclick="generateRandomNumbers02()">😎RUN</button>
 				<p id="result02"></p>
 
 				<script>
@@ -344,8 +418,8 @@
 
 
 			<div>
-				<h1>随机数生成器2</h1>
-				<button onclick="generateRandomNumbers()">生成随机数</button>
+				<h1>Even:</h1>
+				<button onclick="generateRandomNumbers()">😎RUN</button>
 				<p id="result"></p>
 
 				<script>
@@ -383,4 +457,5 @@
 			</div>
 		</div>
 	</body>
+	<!-- Contact leaves.fall@icloud.com -->
 </html>
